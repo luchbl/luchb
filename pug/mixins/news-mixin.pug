@@ -1,0 +1,38 @@
+//- news list
+mixin block_news(blockClass, img, title, desc)
+    .block(class=blockClass)
+        +a("news-detail.html", "absolute",)
+        .thumb-res.wide
+            .absolute(style="background-image: url('css/skin/news/"+img+"')")
+        .info
+            .tt-xs=title
+            .desc.ellipsis-3=desc
+
+//- list news sidebar
+mixin list_news_x()
+    .n-list-x
+        .block.d-flex
+            +a('news-detail.html', 'absolute')
+            .thumb-res(style="background-image:url('css/skin/news/1.jpg')")
+            .info
+                .tt
+                    | [Phú Quốc] Tour Đông Nam đảo - Bãi Sao - Chùa Hộ Quốc - Nhà tù - Suối Tranh - Ăn trưa
+        .block.d-flex
+            +a('news-detail.html', 'absolute')
+            .thumb-res(style="background-image:url('css/skin/news/2.jpg')")
+            .info
+                .tt
+                    | [Phú Quốc] Tour cano 4 đảo - Cáp treo Hòn Thơm - Ăn trưa - Check in Mây Rút Luxury
+        .block.d-flex
+            +a('news-detail.html', 'absolute')
+            .thumb-res(style="background-image:url('css/skin/news/3.jpg')")
+            .info
+                .tt
+                    | [Phú Quốc] Tour Bắc đảo - Rạch Vẹm - Chèo kayak - Khám phá Rừng nguyên sinh - Ăn trưa
+        .block.d-flex
+            +a('news-detail.html', 'absolute')
+            .thumb-res(style="background-image:url('css/skin/news/4.jpg')")
+            .info
+                .tt
+                    | Tour Sài Gòn Đi PHÚ QUỐC 3N3Đ - VinPearl Land - Trải Nghiệm Cáp Treo Dài Nhất Thế Giới - Lặn Ngắm San Hô - Thưởng Thức Đặc Sản
+

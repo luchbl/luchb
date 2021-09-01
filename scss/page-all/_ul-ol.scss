@@ -1,0 +1,96 @@
+.list-style-icon {
+	padding: 0;
+	margin: 0;
+	> li {
+		list-style: none;
+		position: relative;
+		padding-left: 26px;
+		.bi, .fa, .far, .fal, .fab, .fas {
+			@include absolute(0,null,null,1px);
+			line-height: inherit;
+			top: -1px;
+		}
+	}
+}
+//#################################################
+// Phan nay su dung jquery de tao icon cho list
+.order-list-icon {
+	list-style: none;
+	padding: 0;
+	> * {
+		position: relative;
+	}
+	.icon, i, .i {
+		left: 0;
+		line-height: inherit;
+		display: inline-block;
+	    font-style: normal;
+	    font-variant: normal;
+	    text-rendering: auto;
+	    position: absolute;
+	}
+}
+// html: class="order-list-icon" data-list-icon="fa fa-check text-success"
+//##### ul - ol - list
+// $('.order-list-icon').each(function() {
+// 	var $data = $(this).attr('data-list-icon');
+// 	$('<div class="icon '+ $data +'"></div>').prependTo($(this).find('>*'));
+// });
+// $(window).load(function() {
+// 	$('.order-list-icon').each(function() {
+// 		var $di = $(this).find('.icon');
+// 		$(this).find('>*').css('padding-left', $di.width() + 8);
+// 	});
+// });
+//##################################################
+
+// Bootstrap List Style Update
+.list-unstyled li,
+.list-group-item,
+.list-group li {
+	margin-bottom: 0;
+}
+.list-group-numbered {
+    list-style-type: none;
+    counter-reset: section;
+    > li:before {
+    	content: counters(section, ".") ". ";
+		counter-increment: section;
+    }
+}
+
+//#########
+.list-beauty-icon {
+	.avatar {
+		background-color: $primary;
+		color: #fff;
+		box-shadow: 0 0 0 8px rgba($primary, .1);
+		transition: all 0.2s ease-in-out;
+	}
+	> *:hover .avatar {
+		box-shadow: 0 0 0 6px rgba($primary, .24),
+					0 0 0 14px rgba($primary, .05);
+	}
+	> *:nth-child(2n+1) {
+		.avatar {
+		    background-color: $secondary;
+		    box-shadow: 0 0 0 8px rgba($secondary, .1);
+		}
+		&:hover .avatar {
+			box-shadow: 0 0 0 6px rgba($secondary, .24),
+						0 0 0 14px rgba($secondary, .05);
+		}
+	}
+    @each $item, $color in $list-all-colors {
+    	> *:nth-child(#{$item}) {
+    		.avatar {
+                background-color: $color;
+				box-shadow: 0 0 0 8px rgba($color, .1);
+    		}
+    		&:hover .avatar {
+    			box-shadow: 0 0 0 6px rgba($color, .24),
+							0 0 0 14px rgba($color, .05);
+    		}
+    	}
+    }
+}

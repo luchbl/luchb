@@ -1,0 +1,129 @@
+@import "preloader";
+
+.mouse-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translateZ(0);
+    visibility: hidden;
+    z-index: 88889999;
+
+	&.cursor-outer {
+		margin-left: -15px;
+		margin-top: -15px;
+		width: 32px;
+		height: 32px;
+		border: 2px solid #000;
+		opacity: .3;
+		transition: opacity .1s ease-out;
+		&.cursor-hover {
+			opacity: 0;
+		}
+	}
+	&.cursor-inner {
+		margin-left: -3px;
+		margin-top: -3px;
+		width: 6px;
+		height: 6px;
+		background-color: $secondary;
+		transition: width .3s ease-in-out,
+					height .3s ease-in-out,
+					margin .3s ease-in-out,
+					opacity .3s ease-in-out;
+		&.cursor-hover {
+			margin-left: -40px;
+			margin-top: -40px;
+			width: 80px;
+			height: 80px;
+			background-color: #000;
+			opacity: .15;
+		}
+	}
+}
+.mainer {
+	background: #fff;
+	position: relative;
+	z-index: 99;
+}
+.text-stroke {
+	-webkit-text-stroke: 1px #000;
+    color: transparent !important;
+}
+.skewUp {
+    backface-visibility: visible !important;
+    animation-name: skewInUp;
+    transform-origin: 0 0;
+}
+@keyframes skewInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) skewY(10deg);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.tt-bg {
+    @extend %absolute-all;
+    @extend %flex-center;
+    bottom: 20%;
+    font-size: calc(3rem + 4vw);
+    font-weight: bold;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #000;
+    white-space: nowrap;
+    z-index: -1;
+}
+
+.display-0 {
+	font-size: calc(3rem + 6vw);
+	line-height: 1;
+	font-weight: bold;
+}
+.text-type {
+	.cursor {
+		display: inline-block;
+		background-color: rgba(#000,.5);
+		margin-left: 0.1rem;
+		width: 4px;
+		animation: blink 1s infinite;
+        &.typing {
+        	animation: none;
+        }
+	}
+	.typed-text {
+		color: #db03b9;
+	}
+}
+@keyframes blink {
+  0%    { background-color: rgba(#000,.6); }
+  49%   { background-color: rgba(#000,.6); }
+  50%   { background-color: transparent; }
+  99%   { background-color: transparent; }
+  100%  { background-color: rgba(#000,.6); }
+}
+.list-info-group {
+	i {
+		width: 20px + 5;
+		text-align: center;
+	}
+}
+.text-banner {
+	&-header {
+		background-color: rgba(#fff,.3);
+		width: 100%;
+		padding: 7px 1rem;
+		font-size: 16px;
+		a {
+			margin: 0 15px;
+		}
+	}
+}
+
+// about section
+.about-section {
+	background: linear-gradient(-45deg, #fdfeff, #f6f5f7);
+}

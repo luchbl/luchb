@@ -1,0 +1,47 @@
+//- Menu vertical
+mixin menu_vertical_news()
+    ul.menu-vertical
+        li.active: +a('news.html', '', 'Tin công nghệ')
+        li: +a('news.html', '', 'Tin xã hội')
+        li: +a('news.html', '', 'Tin văn hoá')
+        li: +a('news.html', '', 'Tin chính trị')
+        li: +a('news.html', '', 'Tin thế giới')
+
+//- Video item
+mixin video_item(className, id, title)
+    div(class=className)
+        .block
+            a.absolute.bg-cover(href='https://www.youtube.com/watch?v='+id+'&autoplay=1&rel=0&controls=0&showinfo=0"' data-fancybox="video")
+            .ratio.ratio-16x9.bg-cover.mb-3
+                .absolute.d-flex.align-items-center.justify-content-center.bg-cover(style="background-image:url(http://i3.ytimg.com/vi/"+id+"/maxresdefault.jpg)")
+                    .icon-play
+                        svg(height="100%" version="1.1" viewBox="0 0 68 48" width="100%")
+                            path(class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z")
+                            path(d="M 45,24 27,14 27,34" fill="#fff")
+            .info
+                .tt.fw-medium.ellipsis-3=title
+
+//- Modal
+mixin modal_rating()
+    .modal.modal-simple#rateModal(data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+            .modal-content.p-4.p-md-5
+                form.form-validate
+                    .heading.text-center
+                        .bi.bi-person-circle.fa-3x.lh-1.mb-3
+                        .tt-sm.fw-medium.mb-3 Thông tin bạn đọc
+                        .font-15.text-left Thông tin của bạn đọc sẽ được bảo mật an toàn và chỉ sử dụng trong trường hợp shop cần thiết để liên lạc với bạn.
+                    
+                    .py-3.content
+                        .form-group.mb-3
+                            input.form-control.form-control-lg.fs-16(type="text" placeholder="Tên hiển thị" required)
+                        
+                        .form-group.mb-3
+                            input.form-control.form-control-lg.fs-16(type="text" placeholder="Email" required)
+                    
+                    .fooding.text-center
+                        button.btn.px-4.btn-light.mr-2(data-bs-dismiss="modal" type="button") Đóng
+                        button.btn.px-4.btn-primary(type="submit") Gửi bình luận
+                    
+            
+        

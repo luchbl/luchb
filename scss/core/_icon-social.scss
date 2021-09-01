@@ -1,0 +1,238 @@
+.btn-zalo,
+.btn-zalo {
+	background-color: #0161fc;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-width: 0 !important;
+	
+	&:not(:empty) {
+		background-image: none !important;
+		border-width: 1px !important;
+		.icon-zalo,
+		.icon-shopee {
+            background-size: cover;
+		}
+	}
+	&.rounded-0 .icon-shopee,
+	&.rounded-0 .icon-zalo {
+		background-color: #fff;
+	}
+}
+.icon-shopee,
+.icon-zalo {
+	background-image: url('skin/zalo-icon.svg') !important;
+	font-style: normal;
+	display: inline-flex;
+	align-items: center;
+	padding: 0 (0.37% / 2);
+	text-shadow: none !important;
+	&:before {
+		content: '\f042';
+		font-family: 'font awesome 5 pro';
+		text-transform: capitalize;
+		color: transparent !important;
+		line-height: 1;
+	}
+}
+// shopee
+.btn-shopee {
+	background-color: #e74c2c;
+}
+.icon-shopee {
+    background-image: url('skin/icon-shopee-2x.png') !important;
+}
+.list-icon-social {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-left: -7px;
+	margin-top: -7px;
+
+	a {
+        display: block;
+        margin-left: 7px;
+        margin-top: 7px;
+        color: #fff !important;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        border: none !important;
+        text-shadow: -1px 1px 8px rgba(#000, .1);
+	}
+	.bi-facebook {
+    	font-size: 24px;
+    }
+    .fa-facebook-messenger {
+    	font-size: 24px;
+    }
+}
+// stick side web
+.icon-stick {
+	--size: 38px;
+    
+    position: fixed;
+    right: 6px;
+    bottom: 24%;
+    z-index: 567;
+
+    &.active {
+    	pointer-events: none;
+    	.list-icon-social {
+    		transform: translateX(100px);
+    		visibility: hidden;
+    	}
+    	.bi.gotop,
+    	.show-isocial {
+    		transform: none;
+    		visibility: visible;
+    		pointer-events: auto;
+    	}
+    }
+	.close-isocial {
+		display: block;
+		border: none;
+		background: #f9f9f9;
+		color: #555d66;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		margin: auto;
+		font-size: 14px;
+		&:hover {
+			color: #c00;
+		}
+	}
+	.show-isocial {
+		display: block;
+		border: none;
+		background: #000;
+		color: #fff;
+		padding: 7px 10px;
+		font-size: 15px;
+		margin: 0 0 0 auto;
+		border-radius: 20px;
+	}
+    .bi.gotop {
+    	display: block;
+    	margin: 0px 0 0 auto;
+    	border-color: transparent;
+    	padding: 3px 6px;
+    	font-size: 18px;
+        line-height: 1;
+        background: transparent;
+        color: #ed1c24;
+    }
+    .show-isocial,
+    .bi.gotop {
+    	transform: translateX(100px);
+    	visibility: hidden;
+    	transition: all 0.4s ease;
+    }
+	.list-icon-social {
+		display: block;
+		margin-right: 6px;
+		margin-left: auto;
+		transition: all 0.5s ease;
+		a {
+			color: #fff;
+			width: var(--size);
+			height: var(--size);
+			flex: 0 0 var(--size);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			margin: 0 0 5px;
+			position: relative;
+			text-shadow: -1px 1px 6px rgba(#000, .2);
+			&:after {
+				content: '';
+				@include absolute(0,0,0,0);
+				margin: auto;
+				border-radius: 50%;
+			}
+			&:hover:after {
+				animation: faceder 0.75s linear infinite;
+			}
+            @each $name, $color in $custom-colors {
+            	&.btn-#{$name} {
+            		background: $color;
+            	}
+            }
+
+			// bao gia
+			&[data-text-show] {
+				&:before {
+					content: '';
+					width: 0;
+					height: 0;
+					border: 5px solid transparent;
+					border-top: 5px solid lighten($primary, 8%);
+					@include absolute(-6px,16px);
+					border-radius: 0;
+				}
+				&:after {
+					content: attr(data-text-show);
+					background: lighten($primary, 8%);
+					border-radius: 3px;
+					padding: 3px 6px;
+					bottom: 100%;
+					top: auto;
+					left: auto;
+					right: -5px;
+					font-family: $font-family;
+					margin-bottom: 6px;
+					font-size: 13px;
+					animation: none !important;
+				}
+			}
+		}
+		.fa-chevron-up {
+			font-size: 18px;
+			transform: none;
+			background: #fff !important;
+			color: $dark !important;
+			border-color: transparent !important;
+			box-shadow: none;
+		}
+	}
+}
+@media screen and (min-width: 768px) {
+	.icon-stick {
+		right: 17px;
+		a {
+			display: flex;
+		}
+	}
+}
+
+@keyframes faceder {
+    100% {
+    	box-shadow: 0 0 0 15px rgba(#000, .3);
+    	opacity: 0;
+    }
+}
+@keyframes phone-animation {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
